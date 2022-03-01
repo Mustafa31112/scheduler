@@ -40,7 +40,7 @@ export default function Form(props) {
     setInterviewer={setInterviewer}
     interviewers={props.interviewers}
     />
-    XX+ {student}
+     
   </section>
   <section className="appointment__card-right">
     <section className="appointment__actions">
