@@ -28,9 +28,23 @@ export function getInterview(state, interview) {
       },
       student: interview.student,
     }; 
-    console.log("resuly", result)
+    
     return result
   } else {
     return result;
   }
 }
+
+export function getInterviewersForDay(state, day) {
+  //... returns an array of interviewers for that day
+  const dayDetails = state.days.find((element) => element.name === day);
+  if (!dayDetails) {
+    return [];
+  }
+  const interviewerIds = dayDetails.interviewers;
+  const interviewersForDay = interviewerIds.map((appointmentId) => {
+    return state.interviewers[appointmentId];
+  });
+  return interviewersForDay;
+}
+
