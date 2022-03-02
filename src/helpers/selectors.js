@@ -12,31 +12,14 @@ export function getAppointmentsForDay(state, day) {
 }
 
 export function getInterview(state, interview) {
-  
-  
   let result = null;
-  if (!interview || interview == {}) {
+
+  if (!interview) {
     return result;
   }
-
   const interviewerId = interview.interviewer;
-  if (interviewerId === null) {
-    return result;
-  }
-  const interviewerObj = state.interviewers[`${interviewerId}`];
-  if (interviewerObj == undefined) {
-    return result;
-  }
-
-  result = {
-    interviewer: {
-      id: interviewerObj.id,
-      name: interviewerObj.name,
-      avatar: interviewerObj.avatar,
-    },
-    student: interview.student,
-  };
-
+  const interviewerObj = state.interviewers[interviewerId];
+  result = { ...interview, interviewer: interviewerObj };
   return result;
 }
 
