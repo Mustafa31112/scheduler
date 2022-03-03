@@ -9,7 +9,7 @@ export default function useApplicationData(props) {
     appointments: {},
     interviewers: {},
   });
-  
+  console.log("inside appdata", state)
   const spotUpdate = (weekday, day, variable) => {
     let spot = day.spots;
     if (weekday === day.name && variable === "REMOVE_SPOT") {
@@ -60,6 +60,9 @@ export default function useApplicationData(props) {
     });
   }, []);
   const bookInterview = (id, interview) => {
+    const existingInterview = state.appointments[id].interview
+    const days = existingInterview ? state.days : updateSpots(state.day, state.days, "REMOVE_SPOT")
+    
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -71,10 +74,10 @@ export default function useApplicationData(props) {
     return axios
       .put(`http://localhost:8001/api/appointments/${id}`, { interview })
       .then(() => {
-        const spotUpdate = updateSpots(state.day, state.days, "REMOVE_SPOT");
+        // const spotUpdate = updateSpots(state.day, state.days, "REMOVE_SPOT");
         setState({
           ...state,
-          days: spotUpdate,
+          days: days,
           appointments
         });
       });

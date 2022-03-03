@@ -23,9 +23,11 @@ export default function useVisualMode(initial) {
     if (history.length < 2) {
       return;
     }
-    const newHistory = history;
-    newHistory.pop();
-    setHistory([...newHistory]);
+
+    setHistory(history.slice(0, history.length - 1))
+    // const newHistory = history;
+    // newHistory.pop();
+    // setHistory([...newHistory]);
   }
   return { mode: history[history.length - 1], transition, back, history };
 }
