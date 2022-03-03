@@ -10,7 +10,7 @@ export default function useApplicationData(props) {
     appointments: {},
     interviewers: {},
   });
-  console.log(state);
+  
 
   function bookInterview(id, interview) {
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
