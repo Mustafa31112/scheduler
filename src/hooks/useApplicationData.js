@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-//import Appointment from "components/Appointment";
 import axios from "axios";
 import "components/Application.scss";
 
@@ -76,7 +75,6 @@ export default function useApplicationData(props) {
         appointments: all[1].data,
         interviewers: all[2].data,
       }));
-      //const [first, second, third] = all;
     });
   }, []);
 

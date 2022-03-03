@@ -29,14 +29,14 @@ export default function Appointment(props) {
  
 
   function save(name, interviewer) {
-    console.log("name", name);
+    
     if (name === null || name === "") {
-      console.log("no name provided");
+      
       back();
       return;
     }
     if (interviewer === null) {
-      console.log("no interviewer selected");
+      
       back();
       return;
     }
