@@ -9,7 +9,7 @@ export default function useApplicationData(props) {
     appointments: {},
     interviewers: {},
   });
-  console.log("inside appdata", state)
+  
   const spotUpdate = (weekday, day, variable) => {
     let spot = day.spots;
     if (weekday === day.name && variable === "REMOVE_SPOT") {
