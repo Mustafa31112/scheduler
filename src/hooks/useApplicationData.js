@@ -72,7 +72,7 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
     return axios
-      .put(`http://localhost:8001/api/appointments/${id}`, { interview })
+      .put(`/api/appointments/${id}`, { interview })
       .then(() => {
         // const spotUpdate = updateSpots(state.day, state.days, "REMOVE_SPOT");
         setState({
@@ -93,7 +93,7 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
     return axios
-      .delete(`http://localhost:8001/api/appointments/${id}`)
+      .delete(`/api/appointments/${id}`)
       .then(() => {
         const spotUpdate = updateSpots(state.day, state.days, "ADD_SPOT");
         setState({

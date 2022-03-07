@@ -92,7 +92,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === ERROR_SAVE && (
-        <Error onClose={back} message="unable to save" />
+        <Error onClose={() => transition(props.interview ? EDIT : CREATE)}  message="unable to save" />
       )}
       {mode === ERROR_DELETE && (
         <Error onClose={back} message="could not cancel appointment" />
